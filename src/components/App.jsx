@@ -2,7 +2,6 @@ import React from 'react';
 import Header from './Header'
 import Main from './Main'
 import Footer from './Footer'
-import PopupWithForm from './PopupWithForm'
 import ImagePopup from './ImagePopup'
 import api from '../utils.js/Api'
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
@@ -29,14 +28,6 @@ function App() {
    const [selectedCard, setSelectedCard] = React.useState({});
    //cards
    const [cards, setCards] = React.useState([])
-  // React.useEffect(() => {
-  //   Promise.all([api.getProfile()]) 
-  //   .then(([user]) => {
-  //     setCurrentUser(user);
-  //   }).catch((err) => {
-  //     console.error(err);
-  //   });
-  // }, []);
   React.useEffect(() => {
     checkToken();
     if (loggedIn) {
@@ -96,15 +87,6 @@ function handleAvatarUpdate({ avatar }) {
       console.error(err);
     });
 }
-//добавление новой карточки
-  // React.useEffect(() => {
-  //   Promise.all([ api.getInitialCards()])
-  //   .then(([ card] ) => {
-  //       setCards(card)
-  //     }).catch((err) => {
-  //       console.error(err);
-  //     })
-  //   }, [])
 //лайк
 function handleCardLike(card) {
   const isLiked = card.likes.some(i => i._id === currentUser._id);
