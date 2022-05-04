@@ -1,12 +1,10 @@
 import React from "react"
-import api from './utils.js/Api'
+import api from '../utils.js/Api'
 import Card from './Card'
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 function Main (props) {
     const currentUser = React.useContext(CurrentUserContext);
-    
-    
-   
+
     return (
         <main className="main-content">
             <section className="profile">
@@ -21,8 +19,7 @@ function Main (props) {
                         <p className="profile__job">{currentUser.about}</p>
                     </div>
                 </div>
-                <button type="button" className="profile__button-plus" onClick={props.onAddPlace}></button>
-                
+                <button type="button" className="profile__button-plus" onClick={props.onAddPlace}></button>  
             </section>
             <section className="card">
             {props.cards.map((card) => {
@@ -31,15 +28,10 @@ function Main (props) {
             key={card._id}
             card={card}
             onCardClick={props.onCardClick}
-            // onCardLike={handleCardLike}
-            // onCardDelete={handleCardDelete}
             onCardLike={props.onCardLike}
-            onCardDelete={props.onCardDelete}
-          />
-                )
+            onCardDelete={props.onCardDelete}/>)
             })}
             </section>
-            
         </main>
     )
 }
